@@ -4,10 +4,9 @@
 #include <SDL/SDL_mixer.h>
 #include <SDL/SDL_image.h>
 
-int main(int argc, char const *argv[])
+int main()
 {
-
-    SDL_Surface *screen;
+	SDL_Surface *screen;
 	SDL_Surface *background;
 	SDL_Rect positionecran;
 	SDL_Rect positionbackground;
@@ -48,9 +47,17 @@ int main(int argc, char const *argv[])
 		    	 {
                    case SDLK_d:
                    camera.x+=10;
+                   if (camera.x>8600)
+                   {
+                   	camera.x-=10;
+                   }
                    break;
                    case SDLK_a:
                    camera.x-=10;
+                    if (camera.x<0)
+                   {
+                   	camera.x+=10;
+                   }
                    break;
 		    	 }
 		    	 break;
@@ -64,3 +71,4 @@ int main(int argc, char const *argv[])
 
 	return 0;
 }
+
