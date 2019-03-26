@@ -28,7 +28,7 @@ int main()
 
 	SDL_Init(SDL_INIT_EVERYTHING);
 	screen= SDL_SetVideoMode(1366,384,32,SDL_HWSURFACE|SDL_DOUBLEBUF);
-	background=IMG_Load("imgsound/play/map.bmp");
+	background=IMG_Load("imgsound/play/exemple_map.bmp");
 	SDL_Rect camera;
 	camera.x=0;
 	camera.y=0;
