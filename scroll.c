@@ -12,13 +12,19 @@ int main()
 	SDL_Rect positionbackground;
 	SDL_Event e;
 	int continuer=1;
-	if (Mix_OpenAudio(44100,MIX_DEFAULT_FORMAT,MIX_DEFAULT_CHANNELS,1024)==-1)
+	
+	/*
+		Mix_OpenAudio(44100,MIX_DEFAULT_FORMAT,MIX_DEFAULT_CHANNELS,1024);
+	    Mix_Music *musique;
+	    musique = Mix_LoadMUS("imgsound/play/gladiator.mp3");
+
+	
+	    if ((*music)&&(*sound))
 	{
-		printf("%s\n",Mix_GetError());
+		music=0
+	    Mix_PlayMusic(musique,1);
 	}
-	Mix_Music *music;
-	music = Mix_LoadMUS("imgsound/play/gladiator.mp3");
-	Mix_PlayMusic(music,1);
+	*/
 
 	SDL_Init(SDL_INIT_EVERYTHING);
 	screen= SDL_SetVideoMode(1366,384,32,SDL_HWSURFACE|SDL_DOUBLEBUF);
@@ -65,7 +71,7 @@ int main()
 		}
 		}
 	}
-	Mix_FreeMusic(music);
+	//Mix_FreeMusic(musique);
 	Mix_CloseAudio();
 	SDL_Quit();
 
