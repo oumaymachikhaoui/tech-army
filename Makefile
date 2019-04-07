@@ -1,6 +1,6 @@
-prog:fonction.o main.o
-	gcc fonction.o main.o -o prog -lSDL -lSDL_image -g
+prog:obj.o main.o
+	gcc obj.o main.o -o gm -lSDL -lSDL_image
 main.o:main.c
-	gcc -c main.c -lSDL -lSDL_image -g
-fonction.o:fonction.c
-	gcc -c fonction.c -lSDL -lSDL_image -g
+	gcc -c main.c
+obj.o:obj.c
+	gcc -c obj.c
