@@ -1,12 +1,10 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include"SDL/SDL.h"
-#include "SDL/SDL_image.h"
+#include<SDL/SDL.h>
+#include <SDL/SDL_image.h>
 #include"fonction.h"
 
-
-
-void setrects_right(SDL_Rect* clip){
+void setrects_right(SDL_Rect clip[]){
 clip[0].x=0;
 clip[0].y=100;
 clip[0].w=100;
@@ -39,7 +37,7 @@ clip[5].h=100;
 
 }
 
-void setrects_left(SDL_Rect* clip){
+void setrects_left(SDL_Rect clip[]){
 clip[0].x=0;
 clip[0].y=300;
 clip[0].w=100;
@@ -73,6 +71,8 @@ clip[5].h=100;
 }
 
 void animation(acteur *acteur){
+int tempsPrecedent = 0, tempsActuel = 0;
+char temps[20];
 SDL_Init(SDL_INIT_VIDEO);
 acteur->screen=SDL_SetVideoMode(640,480,32,SDL_SWSURFACE);
 acteur->frame=0;
@@ -94,23 +94,28 @@ while (acteur->running)
             case SDL_KEYDOWN:
                 switch(acteur->event.key.keysym.sym)
                 {
-                    
-
-                        break;
                     case SDLK_RIGHT: // Flèche droite
+tempsActuel = SDL_GetTicks();
+if (tempsActuel - tempsPrecedent >100){
                         acteur->rect.x=5+acteur->rect.x;
 setrects_right(acteur->rects);
 acteur->frame++;
 if(acteur->frame==5){
 acteur->frame=0;
-}		
+}	
+tempsPrecedent = tempsActuel;
+}	
                         break;
                     case SDLK_LEFT: // Flèche gauche
+tempsActuel = SDL_GetTicks();
+if (tempsActuel - tempsPrecedent >100){
                         acteur->rect.x=-5+acteur->rect.x;
 setrects_left(acteur->rects);
 acteur->frame++;
 if(acteur->frame==5){
 acteur->frame=0;
+}
+tempsPrecedent = tempsActuel;
 }
 
 
@@ -124,3 +129,6 @@ SDL_BlitSurface(acteur->image,&acteur->rects[acteur->frame],acteur->screen,&acte
 SDL_Flip(acteur->screen);
 }
 }
+
+
+

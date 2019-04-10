@@ -5,6 +5,7 @@
 #include<SDL/SDL.h>
 #include <SDL/SDL_image.h>
 
+
 typedef struct  {
 SDL_Surface *screen,*image;
 SDL_Event event ;
@@ -15,9 +16,8 @@ SDL_Rect rects[5];
 }acteur;
 
 
-void setrects_left(SDL_Rect* clip);
-void setrects_right(SDL_Rect* clip);
+void setrects_right(SDL_Rect clip[]);
+void setrects_left(SDL_Rect clip[]);
 void animation(acteur *acteur);
-
 
 #endif

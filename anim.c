@@ -2,8 +2,9 @@
 #include <stdio.h>
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
+#include "anim.h"
 
-int main(int argc, char *argv[])
+int anim(int argc, char *argv[])
 {
     SDL_Surface *screen = NULL;
     SDL_Surface *pos1=NULL,*pos2=NULL,*background=NULL;
@@ -28,7 +29,8 @@ int main(int argc, char *argv[])
 while (continuer)
 {
 
-SDL_PollEvent(&event);
+while(SDL_PollEvent(&event))
+{
 	switch(event.type)
     {
 
@@ -39,7 +41,7 @@ case SDL_QUIT: /* Appui sur la touche Echap, on arrête le programme */
 
 }
  	
-
+}
 
  
 SDL_BlitSurface(background, NULL, screen, &positionscreen);

@@ -2,8 +2,9 @@
 #include <stdio.h>
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
+#include "dep2.h"
 
-int main(int argc, char *argv[])
+int dep2(int argc, char *argv[])
 {
 
 SDL_Surface *screen = NULL;
@@ -14,19 +15,20 @@ SDL_Surface *screen = NULL;
     SDL_Init(SDL_INIT_VIDEO);
     screen = SDL_SetVideoMode(800, 800, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
     SDL_FillRect(screen, NULL, SDL_MapRGB(screen->format, 255, 255, 255));
-    pos1=  IMG_Load("ph1.png");
+    pos1=  IMG_Load("2.png");
     background = SDL_LoadBMP("exemple_map.bmp");
     
     positionpos1.x = 0;
     positionpos1.y =0;
-    positionscreen.x = 0;
+    positionscreen.x =0;
     positionscreen.y = 0;
     SDL_BlitSurface(background, NULL, screen, &positionscreen);
 
 while (continuer)
 {
 
-SDL_PollEvent(&event);
+while(SDL_PollEvent(&event))
+{
 	switch(event.type)
     {
 
@@ -34,6 +36,8 @@ case SDL_QUIT: /* Appui sur la touche Echap, on arrête le programme */
                     continuer = 0;
 
                     break;
+
+}
 
 }
 
