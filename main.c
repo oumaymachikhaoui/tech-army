@@ -1,34 +1,16 @@
-#include <stdlib.h>
 #include <stdio.h>
-#include <SDL/SDL.h>
-#include <SDL/SDL_image.h>
-#include <SDL/SDL_mixer.h>
-#include <SDL/SDL_ttf.h>
-#include"fonction.h"
-void pause()
-{
-    int continuer = 1;
-    SDL_Event event;
- 
-    while (continuer)
-    {
-        SDL_PollEvent(&event);
-        switch(event.type)
-        {
-            case SDL_QUIT:
-                continuer = 0;
-        }
-    }
-}
+#include <stdlib.h>
+#include <string.h>
+#include <stdbool.h>
+#include "/usr/include/SDL/SDL.h"
+#include "/usr/include/SDL/SDL_image.h"
+#include "/usr/include/SDL/SDL_mixer.h"
+#include "/usr/include/SDL/SDL_ttf.h"
+#include "type.h"
 
-void move(int direction,SDL_Rect *pos)
+int main()
 {
-if(direction==1)
-{
-pos->x++;
-}
-else
-{
-pos->x--;
-}
+
+AItest();
+	
 }

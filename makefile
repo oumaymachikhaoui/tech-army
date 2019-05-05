@@ -1,10 +1,9 @@
-menu: main.o menu.o
-	gcc main.o menu.o -o game -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -g
+ts:fn.o main.o
+	gcc fn.o main.o -o ts -g -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf
+
+
+fn.o:fn.c
+	gcc -c fn.c -g -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf
+	
 main.o:main.c
-	gcc -c main.c
-menu.o:menu.c
-	gcc -c menu.c
-clear:
-	rm *.o
-clearexec:
-	rm *.o game
+	gcc -c main.c -g -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf
