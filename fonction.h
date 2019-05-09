@@ -18,11 +18,10 @@ SDL_Rect rects[6],rects2[6];
 
 void setrects_right(SDL_Rect clip[]);
 void setrects_left(SDL_Rect clip[]);
-void scrollingleft(SDL_Rect *camera);
-void scrollingright(SDL_Rect *camera);
-void scrollingleft2(SDL_Rect *camera2);
-void scrollingright2(SDL_Rect *camera2);
-void animation(acteur *acteur,SDL_Rect camera,SDL_Rect camera2);
-void mini(acteur acteur);
+void scrollingleft(SDL_Rect *rect , SDL_Rect *positionFond );
+void scrollingright(SDL_Rect *rect , SDL_Rect *positionFond );
+void scrollingleft2(SDL_Rect *rect , SDL_Rect *positionFond );
+void scrollingright2(SDL_Rect *rect , SDL_Rect *positionFond );
+void animation(acteur *acteur);
 
 #endif
